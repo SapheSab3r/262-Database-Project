@@ -1,9 +1,9 @@
-uID,applicationID,submissionDate,submissionPath
+jobSeekerID,applicationID,submissionDate,submissionPath
 1,A001,2023-11-12,D:/desktop/resume/applicant1.pdf
 2,A002,2023-12-04,C:/users/docs/resume/applicant2.docx
-3,A003,2023-10-29,E:/downloads/cv/applicant3.pdf
 4,A004,2023-11-14,F:/HR/submissions/applicant4.docx
 2,A005,2023-09-14,D:/desktop/resume/applicant5.pdf
 6,A006,2023-10-25,C:/users/docs/resume/applicant6.docx
 7,A007,2023-10-25,E:/downloads/cv/resumeApplication.pdf
-3,A008,2023-10-12,F:/HR/submissions/applicant8.docx
+7,A007,2023-10-25,E:/downloads/cv/resumeApplication.pdf
+10,A008,2023-10-12,F:/HR/submissions/applicant8.docx
