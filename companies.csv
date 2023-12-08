@@ -1,0 +1,7 @@
+companyID,companyName,size,location,premium
+1,Google,"100,000 - 500,000","Mountain View, CA",Yes
+2,Cisco,"75,000 - 80,000","San Jose, CA",Yes
+3,Microsoft,"100,000 - 500,000","Redmond, WA",Yes
+4,DataDog,"500 - 1,000","San Francisco, CA",No
+5,RedHat,"10,000 - 15,000","Raleigh, NC",Yes
+6,BlueWave Communications,300 - 650,"Seattle, WA",No

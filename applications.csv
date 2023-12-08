@@ -1,0 +1,9 @@
+applicationID,applicationStatus,jobID
+A001,Pending,J102
+A002,Complete,J103
+A003,In Review,J106
+A004,Pending,J109
+A005,Denied,J105
+A006,Approved,J110
+A007,Complete,J104
+A008,In Review,J108

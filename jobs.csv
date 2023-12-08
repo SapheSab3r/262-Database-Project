@@ -1,0 +1,12 @@
+jobID,name,level,salary,location,requirement,description,companyID,notificationID
+J101,Software Engineer,Internship,"$20,000 - $30,000","Seattle, WA","Basic knowledge of Java or Python, teamwork skills",Assist in software development projects and learn coding best practices,2,3
+J102,Marketing Coordinator,Mid-level,"$50,000 - $70,000","Dallas, TX","Experience in digital marketing, proficiency in SEO and Google Analytics",Coordinate and implement marketing strategies to enhance brand presence,4,1
+J103,Frontend Developer,Internship,"$22,000 - $32,000","New York, NY","Familiarity with HTML, CSS, JavaScript, responsive design principles",Develop and optimize web interfaces under supervision,3,2
+J104,Software Engineer,Entry-level,"$60,000 - $80,000","Los Angeles, CA","Bachelor's degree in Computer Science, knowledge of full-stack development",Contribute to all stages of software development lifecycle,5,4
+J105,Network Administrator,Mid-level,"$65,000 - $85,000","Chicago, IL","Experience with network infrastructure, Cisco certifications preferred",Maintain and secure company's network systems,6,5
+J106,Human Resources Assistant,Senior,"$75,000 - $95,000","San Diego, CA","Strong experience in HR operations, knowledge of HR laws and regulations",Lead HR initiatives and provide support in employee relations,1,1
+J107,Supply Chain Manager,Entry-level,"$55,000 - $75,000","Houston, TX","Bachelor’s degree in supply chain management, analytical skills",Manage supply chain processes and optimize logistics operations,2,1
+J108,Product Manager,Entry-level,"$60,000 - $80,000","Boston, MA","Bachelor's degree, strong analytical and project management skills",Assist in product lifecycle management from conception to launch,5,4
+J109,Hardware Engineer,Internship,"$21,000 - $31,000","Seattle, WA","Basic knowledge of electronic circuits, eagerness to learn",Support hardware development projects and gain hands-on experience,3,5
+J110,Data Analyst,Internship,"$20,000 - $30,000","Houston, TX","Proficient in Excel, basic understanding of SQL or Python","Assist in data collection, analysis, and reporting",4,2
+J111,Public Relations Officer,Senior,"$80,000 - $100,000","New York, NY","Extensive PR experience, exceptional communication skills",Manage public relations strategies and enhance company's public image,3,3
