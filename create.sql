@@ -1,34 +1,41 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-12-08 02:30:47.453
+-- Last modification date: 2023-12-08 03:34:36.787
 
 -- tables
--- Table: Application
-CREATE TABLE Application (
+-- Table: Applications
+CREATE TABLE Applications (
     applicationID varchar  NOT NULL,
     applicationStatus text  NOT NULL,
-    jobID varchar  NOT NULL,
-    CONSTRAINT Application_pk PRIMARY KEY (applicationID)
+    jobID VARCHAR  NOT NULL,
+    CONSTRAINT Applications_pk PRIMARY KEY (applicationID)
 );
 
--- Table: Company
-CREATE TABLE Company (
+-- Table: Companies
+CREATE TABLE Companies (
     companyID int  NOT NULL,
     companyName text  NOT NULL,
     size text  NOT NULL,
     location text  NOT NULL,
     premium boolean  NOT NULL,
-    CONSTRAINT Company_pk PRIMARY KEY (companyID)
+    CONSTRAINT Companies_pk PRIMARY KEY (companyID)
 );
 
--- Table: Connection
-CREATE TABLE Connection (
+-- Table: Connections
+CREATE TABLE Connections (
     uID_1 int  NOT NULL,
     uID_2 int  NOT NULL,
-    CONSTRAINT Connection_pk PRIMARY KEY (uID_1,uID_2)
+    CONSTRAINT Connections_pk PRIMARY KEY (uID_1,uID_2)
 );
 
--- Table: Job_Post
-CREATE TABLE Job_Post (
+-- Table: Job_Seekers
+CREATE TABLE Job_Seekers (
+    jobSeekerID int  NOT NULL,
+    searchingJobTitle text  NOT NULL,
+    CONSTRAINT Job_Seekers_pk PRIMARY KEY (jobSeekerID)
+);
+
+-- Table: Jobs
+CREATE TABLE Jobs (
     jobID varchar  NOT NULL,
     name text  NOT NULL,
     "level" text  NOT NULL,
@@ -37,30 +44,23 @@ CREATE TABLE Job_Post (
     requirement text  NOT NULL,
     description text  NOT NULL,
     companyID int  NOT NULL,
-    CONSTRAINT Job_Post_pk PRIMARY KEY (jobID)
+    CONSTRAINT Jobs_pk PRIMARY KEY (jobID)
 );
 
--- Table: Job_Seeker
-CREATE TABLE Job_Seeker (
-    jobSeekerID int  NOT NULL,
-    searchingJobTitle text  NOT NULL,
-    CONSTRAINT Job_Seeker_pk PRIMARY KEY (jobSeekerID)
-);
-
--- Table: Message
-CREATE TABLE Message (
+-- Table: Messages
+CREATE TABLE Messages (
     messageID int  NOT NULL,
     msg text  NOT NULL,
     uID int  NOT NULL,
-    CONSTRAINT Message_pk PRIMARY KEY (messageID)
+    CONSTRAINT Messages_pk PRIMARY KEY (messageID)
 );
 
--- Table: Notification
-CREATE TABLE Notification (
+-- Table: Notifications
+CREATE TABLE Notifications (
     notificationID int  NOT NULL,
     message text  NOT NULL,
     jobID varchar  NOT NULL,
-    CONSTRAINT Notification_pk PRIMARY KEY (notificationID)
+    CONSTRAINT Notifications_pk PRIMARY KEY (notificationID)
 );
 
 -- Table: Notified
@@ -70,40 +70,40 @@ CREATE TABLE Notified (
     CONSTRAINT Notified_pk PRIMARY KEY (jobSeekerID)
 );
 
--- Table: ReceivedMessage
-CREATE TABLE ReceivedMessage (
+-- Table: Received_Messages
+CREATE TABLE Received_Messages (
     msg text  NOT NULL,
     uID int  NOT NULL,
     messageID int  NOT NULL,
-    CONSTRAINT ReceivedMessage_pk PRIMARY KEY (messageID,uID)
+    CONSTRAINT Received_Messages_pk PRIMARY KEY (messageID,uID)
 );
 
--- Table: Recruiter
-CREATE TABLE Recruiter (
+-- Table: Recruiters
+CREATE TABLE Recruiters (
     recruiterID int  NOT NULL,
     recruitingStatus text  NOT NULL,
     companyID int  NOT NULL,
-    CONSTRAINT Recruiter_pk PRIMARY KEY (recruiterID)
+    CONSTRAINT Recruiters_pk PRIMARY KEY (recruiterID)
 );
 
--- Table: Saved_Job
-CREATE TABLE Saved_Job (
+-- Table: Saved_Jobs
+CREATE TABLE Saved_Jobs (
     jobSeekerID int  NOT NULL,
-    jobID varchar  NOT NULL,
-    CONSTRAINT Saved_Job_pk PRIMARY KEY (jobSeekerID,jobID)
+    jobID VARCHAR  NOT NULL,
+    CONSTRAINT Saved_Jobs_pk PRIMARY KEY (jobSeekerID,jobID)
 );
 
--- Table: Submission
-CREATE TABLE Submission (
+-- Table: Submissions
+CREATE TABLE Submissions (
     submissionDate date  NOT NULL,
     resumePath text  NOT NULL,
     jobSeekerID int  NOT NULL,
     applicationID varchar  NOT NULL,
-    CONSTRAINT Submission_pk PRIMARY KEY (jobSeekerID,applicationID)
+    CONSTRAINT Submissions_pk PRIMARY KEY (jobSeekerID,applicationID)
 );
 
--- Table: User
-CREATE TABLE "User" (
+-- Table: Users
+CREATE TABLE Users (
     uID int  NOT NULL,
     username text  NOT NULL,
     currentTitle text  NOT NULL,
@@ -113,62 +113,62 @@ CREATE TABLE "User" (
     skill text  NOT NULL,
     language text  NOT NULL,
     honorsAndAwards text  NOT NULL,
-    CONSTRAINT User_pk PRIMARY KEY (uID)
+    CONSTRAINT Users_pk PRIMARY KEY (uID)
 );
 
 -- foreign keys
--- Reference: Application_Job_Post (table: Application)
-ALTER TABLE Application ADD CONSTRAINT Application_Job_Post
+-- Reference: Application_Job_Post (table: Applications)
+ALTER TABLE Applications ADD CONSTRAINT Application_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Job_Post (jobID)  
+    REFERENCES Jobs (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Connection_User1 (table: Connection)
-ALTER TABLE Connection ADD CONSTRAINT Connection_User1
+-- Reference: Connection_User1 (table: Connections)
+ALTER TABLE Connections ADD CONSTRAINT Connection_User1
     FOREIGN KEY (uID_2)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Connection_User2 (table: Connection)
-ALTER TABLE Connection ADD CONSTRAINT Connection_User2
+-- Reference: Connection_User2 (table: Connections)
+ALTER TABLE Connections ADD CONSTRAINT Connection_User2
     FOREIGN KEY (uID_1)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Job_Post_Company (table: Job_Post)
-ALTER TABLE Job_Post ADD CONSTRAINT Job_Post_Company
+-- Reference: Job_Post_Company (table: Jobs)
+ALTER TABLE Jobs ADD CONSTRAINT Job_Post_Company
     FOREIGN KEY (companyID)
-    REFERENCES Company (companyID)  
+    REFERENCES Companies (companyID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Job_Seeker_User (table: Job_Seeker)
-ALTER TABLE Job_Seeker ADD CONSTRAINT Job_Seeker_User
+-- Reference: Job_Seeker_User (table: Job_Seekers)
+ALTER TABLE Job_Seekers ADD CONSTRAINT Job_Seeker_User
     FOREIGN KEY (jobSeekerID)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Message_User (table: Message)
-ALTER TABLE Message ADD CONSTRAINT Message_User
+-- Reference: Message_User (table: Messages)
+ALTER TABLE Messages ADD CONSTRAINT Message_User
     FOREIGN KEY (uID)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Notification_Job_Post (table: Notification)
-ALTER TABLE Notification ADD CONSTRAINT Notification_Job_Post
+-- Reference: Notification_Job_Post (table: Notifications)
+ALTER TABLE Notifications ADD CONSTRAINT Notification_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Job_Post (jobID)  
+    REFERENCES Jobs (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -176,7 +176,7 @@ ALTER TABLE Notification ADD CONSTRAINT Notification_Job_Post
 -- Reference: Notified_Job_Seeker (table: Notified)
 ALTER TABLE Notified ADD CONSTRAINT Notified_Job_Seeker
     FOREIGN KEY (jobSeekerID)
-    REFERENCES Job_Seeker (jobSeekerID)  
+    REFERENCES Job_Seekers (jobSeekerID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -184,71 +184,71 @@ ALTER TABLE Notified ADD CONSTRAINT Notified_Job_Seeker
 -- Reference: Notified_Notification (table: Notified)
 ALTER TABLE Notified ADD CONSTRAINT Notified_Notification
     FOREIGN KEY (notificationID)
-    REFERENCES Notification (notificationID)  
+    REFERENCES Notifications (notificationID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: ReceivedMessage_Message (table: ReceivedMessage)
-ALTER TABLE ReceivedMessage ADD CONSTRAINT ReceivedMessage_Message
+-- Reference: ReceivedMessage_Message (table: Received_Messages)
+ALTER TABLE Received_Messages ADD CONSTRAINT ReceivedMessage_Message
     FOREIGN KEY (messageID)
-    REFERENCES Message (messageID)  
+    REFERENCES Messages (messageID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: ReceivedMessage_User (table: ReceivedMessage)
-ALTER TABLE ReceivedMessage ADD CONSTRAINT ReceivedMessage_User
+-- Reference: ReceivedMessage_User (table: Received_Messages)
+ALTER TABLE Received_Messages ADD CONSTRAINT ReceivedMessage_User
     FOREIGN KEY (uID)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Recruiter_Company (table: Recruiter)
-ALTER TABLE Recruiter ADD CONSTRAINT Recruiter_Company
+-- Reference: Recruiter_Company (table: Recruiters)
+ALTER TABLE Recruiters ADD CONSTRAINT Recruiter_Company
     FOREIGN KEY (companyID)
-    REFERENCES Company (companyID)  
+    REFERENCES Companies (companyID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Recruiter_User (table: Recruiter)
-ALTER TABLE Recruiter ADD CONSTRAINT Recruiter_User
+-- Reference: Recruiter_User (table: Recruiters)
+ALTER TABLE Recruiters ADD CONSTRAINT Recruiter_User
     FOREIGN KEY (recruiterID)
-    REFERENCES "User" (uID)  
+    REFERENCES Users (uID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Saved_Job_Job_Post (table: Saved_Job)
-ALTER TABLE Saved_Job ADD CONSTRAINT Saved_Job_Job_Post
+-- Reference: Saved_Job_Job_Post (table: Saved_Jobs)
+ALTER TABLE Saved_Jobs ADD CONSTRAINT Saved_Job_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Job_Post (jobID)  
+    REFERENCES Jobs (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Saved_Job_Job_Seeker (table: Saved_Job)
-ALTER TABLE Saved_Job ADD CONSTRAINT Saved_Job_Job_Seeker
+-- Reference: Saved_Job_Job_Seeker (table: Saved_Jobs)
+ALTER TABLE Saved_Jobs ADD CONSTRAINT Saved_Job_Job_Seeker
     FOREIGN KEY (jobSeekerID)
-    REFERENCES Job_Seeker (jobSeekerID)  
+    REFERENCES Job_Seekers (jobSeekerID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Submission_Application (table: Submission)
-ALTER TABLE Submission ADD CONSTRAINT Submission_Application
+-- Reference: Submission_Application (table: Submissions)
+ALTER TABLE Submissions ADD CONSTRAINT Submission_Application
     FOREIGN KEY (applicationID)
-    REFERENCES Application (applicationID)  
+    REFERENCES Applications (applicationID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Submission_Job_Seeker (table: Submission)
-ALTER TABLE Submission ADD CONSTRAINT Submission_Job_Seeker
+-- Reference: Submission_Job_Seeker (table: Submissions)
+ALTER TABLE Submissions ADD CONSTRAINT Submission_Job_Seeker
     FOREIGN KEY (jobSeekerID)
-    REFERENCES Job_Seeker (jobSeekerID)  
+    REFERENCES Job_Seekers (jobSeekerID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
