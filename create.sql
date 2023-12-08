@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-12-08 03:51:50.533
+-- Last modification date: 2023-12-08 18:49:53.048
 
 -- tables
 -- Table: Applications
@@ -52,15 +52,6 @@ CREATE TABLE Job_Seekers (
     CONSTRAINT Job_Seekers_pk PRIMARY KEY (jobSeekerID)
 );
 
--- Table: Messages
-DROP TABLE IF EXISTS Messages CASCADE;
-CREATE TABLE Messages (
-    messageID int  NOT NULL,
-    msg text  NOT NULL,
-    uID int  NOT NULL,
-    CONSTRAINT Messages_pk PRIMARY KEY (messageID)
-);
-
 -- Table: Notifications
 DROP TABLE IF EXISTS Notifications CASCADE;
 CREATE TABLE Notifications (
@@ -75,16 +66,15 @@ DROP TABLE IF EXISTS Notified CASCADE;
 CREATE TABLE Notified (
     jobSeekerID int  NOT NULL,
     notificationID int  NOT NULL,
-    CONSTRAINT Notified_pk PRIMARY KEY (jobSeekerID)
+    CONSTRAINT Notified_pk PRIMARY KEY (jobSeekerID,notificationID)
 );
 
 -- Table: Received_Messages
 DROP TABLE IF EXISTS Received_Messages CASCADE;
 CREATE TABLE Received_Messages (
-    msg text  NOT NULL,
     uID int  NOT NULL,
     messageID int  NOT NULL,
-    CONSTRAINT Received_Messages_pk PRIMARY KEY (messageID,uID)
+    CONSTRAINT Received_Messages_pk PRIMARY KEY (uID)
 );
 
 -- Table: Recruiters
@@ -104,11 +94,20 @@ CREATE TABLE Saved_Jobs (
     CONSTRAINT Saved_Jobs_pk PRIMARY KEY (jobSeekerID,jobID)
 );
 
+-- Table: Sent_Messages
+DROP TABLE IF EXISTS Sent_Messages CASCADE;
+CREATE TABLE Sent_Messages (
+    messageID int  NOT NULL,
+    msg text  NOT NULL,
+    uID int  NOT NULL,
+    CONSTRAINT Sent_Messages_pk PRIMARY KEY (messageID)
+);
+
 -- Table: Submissions
 DROP TABLE IF EXISTS Submissions CASCADE;
 CREATE TABLE Submissions (
     submissionDate date  NOT NULL,
-    resumePath text  NOT NULL,
+    submissionPath text  NOT NULL,
     jobSeekerID int  NOT NULL,
     applicationID varchar  NOT NULL,
     CONSTRAINT Submissions_pk PRIMARY KEY (jobSeekerID,applicationID)
@@ -170,8 +169,8 @@ ALTER TABLE Job_Seekers ADD CONSTRAINT Job_Seeker_User
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Message_User (table: Messages)
-ALTER TABLE Messages ADD CONSTRAINT Message_User
+-- Reference: Message_User (table: Sent_Messages)
+ALTER TABLE Sent_Messages ADD CONSTRAINT Message_User
     FOREIGN KEY (uID)
     REFERENCES Users (uID)  
     NOT DEFERRABLE 
@@ -202,18 +201,18 @@ ALTER TABLE Notified ADD CONSTRAINT Notified_Notification
     INITIALLY IMMEDIATE
 ;
 
--- Reference: ReceivedMessage_Message (table: Received_Messages)
-ALTER TABLE Received_Messages ADD CONSTRAINT ReceivedMessage_Message
-    FOREIGN KEY (messageID)
-    REFERENCES Messages (messageID)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
 -- Reference: ReceivedMessage_User (table: Received_Messages)
 ALTER TABLE Received_Messages ADD CONSTRAINT ReceivedMessage_User
     FOREIGN KEY (uID)
     REFERENCES Users (uID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Received_Messages_Sent_Messages (table: Received_Messages)
+ALTER TABLE Received_Messages ADD CONSTRAINT Received_Messages_Sent_Messages
+    FOREIGN KEY (messageID)
+    REFERENCES Sent_Messages (messageID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
