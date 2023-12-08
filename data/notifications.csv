@@ -1,8 +1,13 @@
 notificationID,message,jobID
-1,"I wanted to let you know about this new, remote Information Technology internship at BlueWave Communications. Their hiring team is interested in you and asked me if you could apply!",J105
-2,Exciting opportunity alert: A new Graphic Design role is open at Google! They've noticed your portfolio and are eager to see your application.,J107
-3,Heads up for a great chance in Marketing! Microsoft is looking for a Marketing Analyst and your profile caught their eye. Check it out!,J109
-4,"Here's a fantastic Software Engineering position at Microsoft, tailored for your skill set. The team there is keen to receive your application.",J104
-5,"New Job Alert: DataDog is searching for a Data Analyst. Given your expertise in data science, they are interested in your profile.",J110
-6,Breaking news: Cisco is on the hunt for an Software Engineer. Your experience makes you a strong candidate. Don’t miss this chance!,J112
-7,Datadog is scouting for a Marketing Coordinator. Your background in marketing stands out. Explore this role!,J102
+1,Breaking news: Cisco is on the hunt for an Software Engineer. Your experience makes you a strong candidate. Don’t miss this chance!,J101
+2,Are you interested in the Marketing opportunity? DataDog just posted a role for Marketing,J102
+3,Heads up for a great chance in Frontend Development! Microsoft is looking for a Frontend Developer and your profile caught their eye. Check it out!,J103
+4,Here's a fantastic Software Engineering position at Microsoft that is tailored for your skill set. The team there is keen to receive your application.,J104
+5,"New Job Alert: BlueWave Communications is searching for a Information Technology Intern. Given your expertise in information Technology, they are interested in your profile.",J105
+6,Exciting opportunity alert: A new Human Resource role is open at Google! They've noticed your portfolio and are eager to see your application.,J106
+7,Exciting opportunity alert: A new Graphic Design role is open at Google! They've noticed your portfolio and are eager to see your application.,J107
+8,Breaking news: RedHat is on the hunt for a Product Manager. Your experience makes you a strong candidate. Don’t miss this chance!,J108
+9,Heads up! Microsoft is looking for Marketing Analyst. Apply and don't miss the chance!,J109
+10,"New Job Alert: DataDog is searching for a Data Analyst. Given your expertise in data science, they are interested in your profile.",J110
+11,Datadog is scouting for a Marketing Coordinator. Your background in marketing stands out. Explore this role!,J111
+12,Cisco is scouting for a Backend Engineer. Your background in marketing stands out. Explore this role!,J112

@@ -2,6 +2,31 @@
 -- Last modification date: 2023-12-08 18:49:53.048
 
 -- tables
+
+
+-- Table: Job_Posts
+DROP TABLE IF EXISTS Job_Posts CASCADE;
+CREATE TABLE Job_Posts (
+    jobID varchar  NOT NULL,
+    name text  NOT NULL,
+    "level" text  NOT NULL,
+    salary text  NOT NULL,
+    location text  NOT NULL,
+    requirement text  NOT NULL,
+    description text  NOT NULL,
+    companyID int  NOT NULL,
+    CONSTRAINT Job_Posts_pk PRIMARY KEY (jobID)
+);
+
+-- Table: Notifications
+DROP TABLE IF EXISTS Notifications CASCADE;
+CREATE TABLE Notifications (
+    notificationID int  NOT NULL,
+    message text  NOT NULL,
+    jobID varchar  NOT NULL,
+    CONSTRAINT Notifications_pk PRIMARY KEY (notificationID)
+);
+
 -- Table: Applications
 DROP TABLE IF EXISTS Applications CASCADE;
 CREATE TABLE Applications (
@@ -30,35 +55,12 @@ CREATE TABLE Connections (
     CONSTRAINT Connections_pk PRIMARY KEY (uID_1,uID_2)
 );
 
--- Table: Job_Posts
-DROP TABLE IF EXISTS Job_Posts CASCADE;
-CREATE TABLE Job_Posts (
-    jobID varchar  NOT NULL,
-    name text  NOT NULL,
-    "level" text  NOT NULL,
-    salary text  NOT NULL,
-    location text  NOT NULL,
-    requirement text  NOT NULL,
-    description text  NOT NULL,
-    companyID int  NOT NULL,
-    CONSTRAINT Job_Posts_pk PRIMARY KEY (jobID)
-);
-
 -- Table: Job_Seekers
 DROP TABLE IF EXISTS Job_Seekers CASCADE;
 CREATE TABLE Job_Seekers (
     jobSeekerID int  NOT NULL,
     searchingJobTitle text  NOT NULL,
     CONSTRAINT Job_Seekers_pk PRIMARY KEY (jobSeekerID)
-);
-
--- Table: Notifications
-DROP TABLE IF EXISTS Notifications CASCADE;
-CREATE TABLE Notifications (
-    notificationID int  NOT NULL,
-    message text  NOT NULL,
-    jobID varchar  NOT NULL,
-    CONSTRAINT Notifications_pk PRIMARY KEY (notificationID)
 );
 
 -- Table: Notified
