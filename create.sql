@@ -1,8 +1,9 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-12-08 03:34:36.787
+-- Last modification date: 2023-12-08 03:51:50.533
 
 -- tables
 -- Table: Applications
+DROP TABLE IF EXISTS Applications CASCADE;
 CREATE TABLE Applications (
     applicationID varchar  NOT NULL,
     applicationStatus text  NOT NULL,
@@ -11,6 +12,7 @@ CREATE TABLE Applications (
 );
 
 -- Table: Companies
+DROP TABLE IF EXISTS Companies CASCADE;
 CREATE TABLE Companies (
     companyID int  NOT NULL,
     companyName text  NOT NULL,
@@ -21,21 +23,16 @@ CREATE TABLE Companies (
 );
 
 -- Table: Connections
+DROP TABLE IF EXISTS Connections CASCADE;
 CREATE TABLE Connections (
     uID_1 int  NOT NULL,
     uID_2 int  NOT NULL,
     CONSTRAINT Connections_pk PRIMARY KEY (uID_1,uID_2)
 );
 
--- Table: Job_Seekers
-CREATE TABLE Job_Seekers (
-    jobSeekerID int  NOT NULL,
-    searchingJobTitle text  NOT NULL,
-    CONSTRAINT Job_Seekers_pk PRIMARY KEY (jobSeekerID)
-);
-
--- Table: Jobs
-CREATE TABLE Jobs (
+-- Table: Job_Posts
+DROP TABLE IF EXISTS Job_Posts CASCADE;
+CREATE TABLE Job_Posts (
     jobID varchar  NOT NULL,
     name text  NOT NULL,
     "level" text  NOT NULL,
@@ -44,10 +41,19 @@ CREATE TABLE Jobs (
     requirement text  NOT NULL,
     description text  NOT NULL,
     companyID int  NOT NULL,
-    CONSTRAINT Jobs_pk PRIMARY KEY (jobID)
+    CONSTRAINT Job_Posts_pk PRIMARY KEY (jobID)
+);
+
+-- Table: Job_Seekers
+DROP TABLE IF EXISTS Job_Seekers CASCADE;
+CREATE TABLE Job_Seekers (
+    jobSeekerID int  NOT NULL,
+    searchingJobTitle text  NOT NULL,
+    CONSTRAINT Job_Seekers_pk PRIMARY KEY (jobSeekerID)
 );
 
 -- Table: Messages
+DROP TABLE IF EXISTS Messages CASCADE;
 CREATE TABLE Messages (
     messageID int  NOT NULL,
     msg text  NOT NULL,
@@ -56,6 +62,7 @@ CREATE TABLE Messages (
 );
 
 -- Table: Notifications
+DROP TABLE IF EXISTS Notifications CASCADE;
 CREATE TABLE Notifications (
     notificationID int  NOT NULL,
     message text  NOT NULL,
@@ -64,6 +71,7 @@ CREATE TABLE Notifications (
 );
 
 -- Table: Notified
+DROP TABLE IF EXISTS Notified CASCADE;
 CREATE TABLE Notified (
     jobSeekerID int  NOT NULL,
     notificationID int  NOT NULL,
@@ -71,6 +79,7 @@ CREATE TABLE Notified (
 );
 
 -- Table: Received_Messages
+DROP TABLE IF EXISTS Received_Messages CASCADE;
 CREATE TABLE Received_Messages (
     msg text  NOT NULL,
     uID int  NOT NULL,
@@ -79,6 +88,7 @@ CREATE TABLE Received_Messages (
 );
 
 -- Table: Recruiters
+DROP TABLE IF EXISTS Recruiters CASCADE;
 CREATE TABLE Recruiters (
     recruiterID int  NOT NULL,
     recruitingStatus text  NOT NULL,
@@ -87,6 +97,7 @@ CREATE TABLE Recruiters (
 );
 
 -- Table: Saved_Jobs
+DROP TABLE IF EXISTS Saved_Jobs CASCADE;
 CREATE TABLE Saved_Jobs (
     jobSeekerID int  NOT NULL,
     jobID VARCHAR  NOT NULL,
@@ -94,6 +105,7 @@ CREATE TABLE Saved_Jobs (
 );
 
 -- Table: Submissions
+DROP TABLE IF EXISTS Submissions CASCADE;
 CREATE TABLE Submissions (
     submissionDate date  NOT NULL,
     resumePath text  NOT NULL,
@@ -103,6 +115,7 @@ CREATE TABLE Submissions (
 );
 
 -- Table: Users
+DROP TABLE IF EXISTS Users CASCADE;
 CREATE TABLE Users (
     uID int  NOT NULL,
     username text  NOT NULL,
@@ -120,7 +133,7 @@ CREATE TABLE Users (
 -- Reference: Application_Job_Post (table: Applications)
 ALTER TABLE Applications ADD CONSTRAINT Application_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Jobs (jobID)  
+    REFERENCES Job_Posts (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -141,8 +154,8 @@ ALTER TABLE Connections ADD CONSTRAINT Connection_User2
     INITIALLY IMMEDIATE
 ;
 
--- Reference: Job_Post_Company (table: Jobs)
-ALTER TABLE Jobs ADD CONSTRAINT Job_Post_Company
+-- Reference: Job_Post_Company (table: Job_Posts)
+ALTER TABLE Job_Posts ADD CONSTRAINT Job_Post_Company
     FOREIGN KEY (companyID)
     REFERENCES Companies (companyID)  
     NOT DEFERRABLE 
@@ -168,7 +181,7 @@ ALTER TABLE Messages ADD CONSTRAINT Message_User
 -- Reference: Notification_Job_Post (table: Notifications)
 ALTER TABLE Notifications ADD CONSTRAINT Notification_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Jobs (jobID)  
+    REFERENCES Job_Posts (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -224,7 +237,7 @@ ALTER TABLE Recruiters ADD CONSTRAINT Recruiter_User
 -- Reference: Saved_Job_Job_Post (table: Saved_Jobs)
 ALTER TABLE Saved_Jobs ADD CONSTRAINT Saved_Job_Job_Post
     FOREIGN KEY (jobID)
-    REFERENCES Jobs (jobID)  
+    REFERENCES Job_Posts (jobID)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
