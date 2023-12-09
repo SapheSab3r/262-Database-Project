@@ -13,8 +13,6 @@ print(us)
 
 def count_premium_users():
 
-    cols = 'uID'
-
     tmpl =  f'''
         SELECT COUNT(uID)
         FROM Users
@@ -24,7 +22,8 @@ def count_premium_users():
     print_cmd(cmd)
     cur.execute(cmd)
     rows = cur.fetchall()
-    pp(rows)
-    show_table(rows, cols)
+    count = rows[0][0]
+    result_message = f"The total number of premium users is: {count}"
+    print(result_message)
 
 count_premium_users()    

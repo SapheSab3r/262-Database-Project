@@ -11,7 +11,6 @@ So That:  I can analyze the level of interest and competitiveness for the positi
 print(us)
 
 def count_applicants(jobID):
-    cols = 'applicationID'
 
     tmpl =  f'''
         SELECT COUNT(applicationID)
@@ -22,8 +21,9 @@ def count_applicants(jobID):
     print_cmd(cmd)
     cur.execute(cmd)
     rows = cur.fetchall()
-    pp(rows)
-    show_table(rows, cols)
+    count = rows[0][0]
+    result_message = f"The total number of applicants for JobID {jobID} is: {count}"
+    print(result_message)
 
 
 count_applicants('J108')    
