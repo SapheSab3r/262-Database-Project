@@ -18,7 +18,6 @@ def message_connections(messageID, msg, uID):
     cmd = cur.mogrify(tmpl, (messageID, msg, uID))
     print_cmd(cmd)
     cur.execute(cmd)
-    rows = cur.fetchall() 
     print("A new message is sent!")
 
 
@@ -37,8 +36,10 @@ def print_table():
 # Example usage
 print("original table:")
 print_table()
-message_connections(7, "Hi, nice to meet you。 Can we connect?", 3)
+message_connections(8, "Hi, I am interested in this role. Can we connect to talk more about this position?", 9)
 print("updated table:")
 print_table()
+
+
 
 
