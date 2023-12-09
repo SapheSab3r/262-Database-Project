@@ -23,7 +23,43 @@ CREATE database project;
 \copy Submissions(jobSeekerID, applicationID, submissionDate, submissionPath) FROM data/submissions.csv csv header;
 \copy Received_Messages(messageID, uID) FROM data/received_messages.csv csv header;
 
+CREATE FUNCTION fn_send_notifications()
+RETURNS trigger
+LANGUAGE plpgsql AS
+$$
+DECLARE
+    company_name TEXT;
+    job_name TEXT;
+    job_level TEXT;
+    msg TEXT;
+BEGIN
+    SELECT c.companyName INTO company_name
+    FROM Companies c
+    JOIN Job_Posts j ON c.companyID = j.companyID
+    WHERE c.companyID = NEW.companyID;
 
+    SELECT name INTO job_name
+      FROM Job_Posts
+     WHERE name = NEW.name;
+
+    SELECT level INTO job_level
+      FROM Job_Posts
+     WHERE level = new.level;
+
+    msg := 'A ' || job_name || ' ' || job_level || ' job at ' || company_name || ' has just been released!';
+
+    INSERT INTO Notifications(notificationID, message, jobID)
+    VALUES(13, msg, NEW.jobID);
+
+    RETURN NULL;
+END;
+$$;
+
+
+CREATE TRIGGER tr_send_notifications
+AFTER INSERT ON Job_Posts
+FOR EACH ROW
+EXECUTE FUNCTION fn_send_notifications()
 
 
 

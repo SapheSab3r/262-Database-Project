@@ -25,4 +25,5 @@ def count_applicants(jobID):
     pp(rows)
     show_table(rows, cols)
 
+
 count_applicants('J108')    
