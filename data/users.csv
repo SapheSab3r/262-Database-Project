@@ -1,11 +1,11 @@
 uID,username,currentTitle,education,premium,experience,skill,language,honorsAndAwards
-1,Alex Morgan,CS @ Standford,B.S. in Computer Science,No,ex-SWE @ Amazon,"Java, C, Python",English,"Hackathon, Dean's List"
-2,Casey Smith,Business @ Harvard,MBA in Marketing,Yes,ex-marketing intern @ Cisco,"SEO, Social Media","English, Spanish",Best Marketing Campaign 2020
-3,Jordan Kuo,Marketing Manager @ RedHat,B.A. in Economics,No,Marketing @ Boston Group,Financial Modeling,"English, Mandarin",Analyst of the Year 2019
-4,Priya Patel,Design Major @ Rice,BFA in Graphic Design,No,past Graphic Designer @ South Design Studio,Adobe Creative Suite,"English, Hindi",Design Excellence Award 2018
-5,Sam Johnson,IS @ Carnegie Mellon,B.S. in Information Systems,No,"student leader at BTG, SWE intern @ Beacon, UI design intern @ BioTech","Python, SQL",English,Dean's List
-6,Maria Garcia,Senior Manager @ BlueWave Communications,B.S. in Business Administration,Yes,"Operation Analysist @ Barclays,  strategy operator @ Walmart",Customer Relations,Spanish,Top Salesperson Q1 2021
-7,Lee Wong,Senior Data Manager @ DataDog,M.S. in Data Science,Yes,"Data Engineer @ HBC, Data Scienctist @ Becaon Tech","Python, Machine Learning","English, Cantonese",Data Science Fair Winner
-8,Rachel Adams,HR Manager @ Cisco,M.A. in Human Resources,Yes,HR intern @ Corporate,Employee Relations,"English, French",HR Leader of the Year 2020
-9,Grace Chu,HR @ Google,B.A  in Business Management,Yes,"marketing intern @ Saleforce, business analyist @ Mecque","Analyist, SQL, presentation","English, Mandarin",Business Analyist Certificate
-10,Junyi Wang,Product Management @ Carnegie Mellon Tepper,B.S in Product Management,No,"SWE intern @ Amazon, SWE intern @ Accountable","Python, C, Java, SCRUM","English, Chinese",Dean's List
+1,Alex Morgan,CS @ Standford,B.S. in Computer Science,FALSE,ex-SWE @ Amazon,"Java, C, Python",English,"Hackathon, Dean's List"
+2,Casey Smith,Business @ Harvard,MBA in Marketing,TRUE,ex-marketing intern @ Cisco,"SEO, Social Media","English, Spanish",Best Marketing Campaign 2020
+3,Jordan Kuo,Marketing Manager @ RedHat,B.A. in Economics,FALSE,Marketing @ Boston Group,Financial Modeling,"English, Mandarin",Analyst of the Year 2019
+4,Priya Patel,Design Major @ Rice,BFA in Graphic Design,FALSE,past Graphic Designer @ South Design Studio,Adobe Creative Suite,"English, Hindi",Design Excellence Award 2018
+5,Sam Johnson,IS @ Carnegie Mellon,B.S. in Information Systems,FALSE,"student leader at BTG, SWE intern @ Beacon, UI design intern @ BioTech","Python, SQL",English,Dean's List
+6,Maria Garcia,Senior Manager @ BlueWave Communications,B.S. in Business Administration,TRUE,"Operation Analysist @ Barclays,  strategy operator @ Walmart",Customer Relations,Spanish,Top Salesperson Q1 2021
+7,Lee Wong,Senior Data Manager @ DataDog,M.S. in Data Science,TRUE,"Data Engineer @ HBC, Data Scienctist @ Becaon Tech","Python, Machine Learning","English, Cantonese",Data Science Fair Winner
+8,Rachel Adams,HR Manager @ Cisco,M.A. in Human Resources,TRUE,HR intern @ Corporate,Employee Relations,"English, French",HR Leader of the Year 2020
+9,Grace Chu,HR @ Google,B.A  in Business Management,TRUE,"marketing intern @ Saleforce, business analyist @ Mecque","Analyist, SQL, presentation","English, Mandarin",Business Analyist Certificate
+10,Junyi Wang,Product Management @ Carnegie Mellon Tepper,B.S in Product Management,FALSE,"SWE intern @ Amazon, SWE intern @ Accountable","Python, C, Java, SCRUM","English, Chinese",Dean's List
