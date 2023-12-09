@@ -1,7 +1,7 @@
 from common import *
 
 us='''
-* US 2
+* US 3
 
    As a:  LinkedIn Business Manager
  I want:  view a count of all premium users and companies
