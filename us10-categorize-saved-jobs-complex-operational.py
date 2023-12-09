@@ -12,12 +12,12 @@ print(us)
 
 def categorize_saved_jobs_by_locations(jobSeekerID):
     tmpl = '''
-        SELECT jp.location, COUNT(jp.jobID) AS Job_count 
+        SELECT jp.location, jp.name
           FROM Saved_Jobs AS s JOIN Job_Posts AS jp
                ON s.jobID = jp.jobID
          WHERE s.jobSeekerID = %s
-         GROUP BY jp.location
-         ORDER BY Job_count
+         GROUP BY jp.location, jp.name
+
     '''
     cmd = cur.mogrify(tmpl, (jobSeekerID,))
     print_cmd(cmd)
