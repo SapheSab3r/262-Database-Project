@@ -11,7 +11,6 @@ So That:  Users are inclined to apply early to ensure an efficent hiring process
 print(us)
 
 # trigger event
-
 def adding_new_job(jobID, name, level, salary, location, requirement, description, companyID):
     
     cols = 'jobID name level salary location requirement description companyID'

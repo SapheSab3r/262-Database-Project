@@ -21,6 +21,8 @@ def count_applicants(jobID):
     print_cmd(cmd)
     cur.execute(cmd)
     rows = cur.fetchall()
+    
+    # fetching and printing result
     count = rows[0][0]
     result_message = f"The total number of applicants for JobID {jobID} is: {count}"
     print(result_message)
