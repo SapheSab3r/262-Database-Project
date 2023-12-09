@@ -46,7 +46,9 @@ def update_profile(uID, currentTitle):
     rows = cur.fetchall()
     show_table( rows, cols )
 
+# Example usage
+print("Profile Before Update:")
+profile_before_update(5)   
 
-
-profile_before_update(5)    
+print("Profile After Update:")
 update_profile(5, 'SWE @ Microsoft')    

@@ -4,7 +4,7 @@ us='''
 * US 7
 
    As a:  Job Seeker
- I want:  utilize the advanced search functionality with specific filters like job title, experience level, and posting date
+ I want:  utilize the advanced search functionality with specific filters like job title, experience level, and location
 So That:  I can efficiently find job opportunities that match my career goals and qualifications
 
 '''
@@ -28,4 +28,4 @@ def search_jobs(jobTitle, level, location):
         print("No jobs found")
 
 #Example usage
-search_jobs("Software Engineer", "Internship", "Seattle, WA")
+search_jobs("Backend Engineer", "Internship", "Seattle, WA")

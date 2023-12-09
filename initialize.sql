@@ -77,7 +77,7 @@ EXECUTE FUNCTION fn_send_notifications();
 
 
 -- Trigger Function for User Story 9
-CREATE OR REPLACE FUNCTION  fn_update_message_received() 
+CREATE OR REPLACE FUNCTION fn_update_message_received() 
 RETURNS trigger
 LANGUAGE plpgsql AS
 $$
