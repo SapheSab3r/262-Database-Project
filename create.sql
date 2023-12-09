@@ -74,8 +74,8 @@ CREATE TABLE Notified (
 -- Table: Received_Messages
 DROP TABLE IF EXISTS Received_Messages CASCADE;
 CREATE TABLE Received_Messages (
-    uID int  NOT NULL,
     messageID int  NOT NULL,
+    uID int  NOT NULL,
     CONSTRAINT Received_Messages_pk PRIMARY KEY (uID)
 );
 

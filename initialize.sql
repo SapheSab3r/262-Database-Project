@@ -68,17 +68,17 @@ $$;
 CREATE TRIGGER tr_send_notifications
 AFTER INSERT ON Job_Posts
 FOR EACH ROW
-EXECUTE FUNCTION fn_send_notifications()
+EXECUTE FUNCTION fn_send_notifications();
 
 
 -- Trigger Function for User Story 9
-CREATE OR REPLACE FUNCTION  fn_update_message_received() 
+CREATE OR REPLACE FUNCTION fn_update_message_received() 
 RETURNS trigger
 LANGUAGE plpgsql AS
 $$
     BEGIN
         INSERT INTO Received_Messages(messageID, uID)
-        VALUES (NEW.messageID, NEW.uID)
+        VALUES (NEW.messageID, NEW.uID);
 
         RETURN NULL;
     END;
