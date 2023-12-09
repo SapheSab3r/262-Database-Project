@@ -57,7 +57,7 @@ print("Original Received_Messages table:")
 print_table("Received_Messages")
 
 # Sending a message
-message_connections(9, "Hi, I am interested in this role. Can we connect to talk more about this position? Thank you", 8)
+message_connections(7, "Hi, I am interested in this role. Can we connect to talk more about this position? Thank you", 8)
 
 # Printing updated tables
 print("Updated Sent_Messages table:")
