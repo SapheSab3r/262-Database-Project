@@ -19,12 +19,13 @@ def search_jobs(jobTitle, level, location):
     '''
     cmd = cur.mogrify(tmpl, (jobTitle, level, location))
     print_cmd(cmd)
-    cur.execute(tmpl)
-    rows = cur.fetchall
+    cur.execute(cmd)
+    rows = cur.fetchall()
     if rows:
         for row in rows:
             print(row)
     else:
-        print("No jobs match your filter")
+        print("No jobs found")
 
+#Example usage
 search_jobs("Software Engineer", "Internship", "Seattle, WA")
