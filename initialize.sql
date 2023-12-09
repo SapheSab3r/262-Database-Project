@@ -33,6 +33,7 @@ DECLARE
     company_name TEXT;
     job_name TEXT;
     job_level TEXT;
+    notification_id INT;
     msg TEXT;
 BEGIN
 -- Retriving company name from company table to add to notification message
@@ -53,11 +54,15 @@ BEGIN
 
     msg := 'A ' || job_name || ' ' || job_level || ' job at ' || company_name || ' has just been released!';
 
+    -- Extracting numeric portion from jobID and casting it to integer for notificationID
+    notification_id := CAST(substring(NEW.jobID FROM '[0-9]+') AS INTEGER);
+
+    -- Subtracting 100 from the notificationID
+    notification_id := notification_id - 100;
+
     INSERT INTO Notifications(notificationID, message, jobID)
 
--- Hard coded notificationID because IDs are hardcoded in data 
--- (parsing inputs and casting types was not covered in couse content & is beyond project scope)
-    VALUES(13, msg, NEW.jobID);
+    VALUES(notification_id, msg, NEW.jobID);
 
     RETURN NULL;
 END;
