@@ -37,6 +37,6 @@ def print_table():
 # Example usage
 print("original table:")
 print_table()
-post_jobs("J113", "Software Engineer", "Junior", "$70,000-$80,000", "New York", "Python, SQL", "Developing and maintaining software applications", 2)
+post_jobs("J114", "Software Engineer", "Junior", "$70,000-$80,000", "New York", "Python, SQL", "Developing and maintaining software applications", 2)
 print("updated table:")
 print_table()
